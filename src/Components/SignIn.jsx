@@ -1,10 +1,29 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { checkValidSignIn } from "../utils/validate";
 
 const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false);
-  const signUpHandler = () => {
-    setIsSignUp(!isSignUp);
+  const email = useRef(null);
+  const password = useRef(null);
+  const name = useRef(null);
+  const [errorMessage, setErrorMessage] = useState();
+  const signUpHandler = () => setIsSignUp(!isSignUp);
+  const handleIsValidData = (e) => {
+    e.preventDefault();
+    const message = checkValidSignIn({
+      email: email.current.value.trim(),
+      password: password.current.value.trim(),
+      name: name?.current?.value.trim(),
+      isSignUp,
+    });
+    setErrorMessage(message);
   };
+  useEffect(() => {
+    setErrorMessage(null);
+    email.current.value = null;
+    password.current.value = null;
+    if (name.current) name.current.value = "";
+  }, [isSignUp]);
   return (
     <div className="bg-[rgba(0,0,0,0.8)] bg-opacity-80 w-4/12 absolute left-1/2 transform -translate-x-1/2 my-32">
       <form className="w-5/6 mx-auto px-6 py-8 m-4 flex flex-col gap-4">
@@ -14,34 +33,41 @@ const SignIn = () => {
         {isSignUp && (
           <input
             type="text"
+            ref={name}
             placeholder="Name"
             className=" border border-gray-600 text-white rounded-sm outline-none w-full px-4 py-4"
           ></input>
         )}
         <input
           type="email"
+          ref={email}
           placeholder="Email Address"
           className=" border border-gray-600 text-white rounded-sm outline-none w-full px-4 py-4"
         ></input>
         <input
           type="password"
+          ref={password}
           placeholder="Password"
           className=" border border-gray-600 text-white rounded-sm outline-none w-full px-4 py-4 "
         ></input>
+        {errorMessage && (
+          <p className="font-bold text-red-600">{errorMessage}</p>
+        )}
         <button
           type="submit"
+          onClick={handleIsValidData}
           className="text-white bg-red-600 rounded-sm w-full px-4 py-2 font-bold cursor-pointer"
         >
-          Sign In
+          {!isSignUp ? "Sign In" : "Sign Up"}
         </button>
         <p className="text-white text-center">Forgot password?</p>
         <p className="text-gray-400">
-          New to Netflix?
+          {!isSignUp ? "New to Netflix?" : "Already Registered?"}
           <span
-            className="text-white font-bold cursor-pointer"
+            className="text-white font-bold cursor-pointer hover:underline"
             onClick={signUpHandler}
           >
-            Sign up now.
+            {!isSignUp ? "Sign up now." : "Sign In Now"}
           </span>
         </p>
       </form>

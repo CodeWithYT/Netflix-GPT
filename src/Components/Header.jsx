@@ -1,4 +1,4 @@
-import { NETFLIX_LOGO } from "./assets/images";
+import { NETFLIX_LOGO } from "../assets/images";
 
 const Header = () => (
   <div className="absolute top-0 bg-gradient-to-b from-black w-full">

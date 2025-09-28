@@ -1,6 +1,6 @@
 import Header from "./Header";
 import SignIn from "./SignIn";
-import { NETFLIX_BG } from "./assets/images";
+import { NETFLIX_BG } from "../assets/images";
 
 const Body = () => {
   return (
