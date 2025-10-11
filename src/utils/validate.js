@@ -1,4 +1,10 @@
-export const checkValidSignIn = ({ email, password, name, isSignUp }) => {
+export const checkValidSignIn = ({
+  email,
+  password,
+  name,
+  isSignUp,
+  setLoading,
+}) => {
   if (!email || !password) {
     return isSignUp
       ? "Name, Email and Password are required"
