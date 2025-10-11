@@ -5,15 +5,20 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { SPINNER } from "../utils/constants";
 
 const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(false);
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState();
   const signUpHandler = () => setIsSignUp(!isSignUp);
   const handleIsValidData = (e) => {
+    setLoading(true);
     e.preventDefault();
     const message = checkValidSignIn({
       email: email.current.value.trim(),
@@ -22,7 +27,10 @@ const SignIn = () => {
       isSignUp,
     });
     setErrorMessage(message);
-    if (message) return;
+    if (message) {
+      setLoading(false);
+      return;
+    }
 
     isSignUp
       ? createUserWithEmailAndPassword(
@@ -34,13 +42,14 @@ const SignIn = () => {
             // Signed up
             const user = userCredential.user;
             console.log(user);
+            navigate("/home");
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            setErrorMessage(errorCode + " - " + errorMessage);
-            // ..
+            setErrorMessage("email already exists");
           })
+          .finally(() => setLoading(false))
       : signInWithEmailAndPassword(
           auth,
           email.current.value,
@@ -49,13 +58,15 @@ const SignIn = () => {
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
+            navigate("/home");
             console.log(user);
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             setErrorMessage("invalid email or password");
-          });
+          })
+          .finally(() => setLoading(false));
   };
   useEffect(() => {
     setErrorMessage(null);
@@ -95,9 +106,20 @@ const SignIn = () => {
         <button
           type="submit"
           onClick={handleIsValidData}
+          disabled={loading}
           className="text-white bg-red-600 rounded-sm w-full px-4 py-2 font-bold cursor-pointer"
         >
-          {!isSignUp ? "Sign In" : "Sign Up"}
+          {loading ? (
+            <img
+              alt="loading"
+              src={SPINNER}
+              className="flex justify-center mx-auto h-8 filter invert brightness-0"
+            ></img>
+          ) : !isSignUp ? (
+            "Sign In"
+          ) : (
+            "Sign Up"
+          )}
         </button>
         <p className="text-white text-center">Forgot password?</p>
         <p className="text-gray-400">

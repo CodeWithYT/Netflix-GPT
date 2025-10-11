@@ -9,3 +9,9 @@
     - integrated firebase.
     - deploying app to production.
     - implementing signing up user and sign in user.
+    - add loading state and disabling button to Prevent Double Submission.
+    - Showing spinner while processing.
+    - using TMDB for API's
+    - fetching now playing movies from TMDB.
+    - create home page.
+    - create background video component and video title and description.

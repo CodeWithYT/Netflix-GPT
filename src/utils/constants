@@ -1,0 +1,16 @@
+export const SPINNER =
+  "https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/abfa05c49acf005b8b1e0ef8eb25a67a7057eb20/svg-smil/3-dots-fade.svg";
+
+export const TMDB_API_OPTIONS = {
+  method: "GET",
+  headers: {
+    accept: "application/json",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOGU0YmU1M2ZkZjM2Nzk4NTM2ZWY2N2I2ZjlhNGFhMyIsIm5iZiI6MTc2MDE3MjI1OC4zMjQsInN1YiI6IjY4ZWExOGUyYTU3NjFjZDA0MTMyMTY1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.zGKpcTF3VoX9E2AXBO0GONOMknetrKU7zvjslsnwbvI",
+  },
+};
+
+export const NOWPLAYING =
+  "https://api.themoviedb.org/3/movie/now_playing?language=%7Cte-IN%7Chi-IN%7Cen-IN&page=1";
+
+export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
