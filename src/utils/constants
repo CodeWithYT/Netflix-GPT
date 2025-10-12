@@ -14,3 +14,6 @@ export const NOWPLAYING =
   "https://api.themoviedb.org/3/movie/now_playing?language=%7Cte-IN%7Chi-IN%7Cen-IN&page=1";
 
 export const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
+
+export const POPULAR_MOVIES =
+  "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
