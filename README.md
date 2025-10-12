@@ -15,3 +15,6 @@
     - fetching now playing movies from TMDB.
     - create home page.
     - create background video component and video title and description.
+    - create movie container.
+    - create movie category and movie card.
+    - integrate react icons.
