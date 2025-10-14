@@ -70,8 +70,8 @@ const SignIn = () => {
   };
   useEffect(() => {
     setErrorMessage(null);
-    email.current.value = null;
-    password.current.value = null;
+    email.current.value = "";
+    password.current.value = "";
     if (name.current) name.current.value = "";
   }, [isSignUp]);
   return (
