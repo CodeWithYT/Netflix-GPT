@@ -8,6 +8,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Header from "./Header";
+import { Provider } from "react-redux";
+import appStore from "../utils/appStore";
 
 const App = () => {
   return (
@@ -26,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Body />,
+        children: [],
       },
       {
         path: "/home",
@@ -35,5 +38,7 @@ const router = createBrowserRouter([
   },
 ]);
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <Provider store={appStore}>
+    <RouterProvider router={router} />
+  </Provider>
 );
