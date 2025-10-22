@@ -1,3 +1,4 @@
+import { TOP_RATED_MOVIES } from "../utils/constants";
 import { POPULAR_MOVIES } from "../utils/constants";
 import useMovies from "../utils/useMovies";
 import MovieCategory from "./MovieCategory";
@@ -7,19 +8,25 @@ const MoviesContainer = () => {
     movies: popularMovies,
     loading: popularLoading,
     error: popularError,
-  } = useMovies(POPULAR_MOVIES);
+  } = useMovies(POPULAR_MOVIES, "Popular");
+  const {
+    movies: topRatedMovies,
+    loading: topRatedLoading,
+    error: topRatedError,
+  } = useMovies(TOP_RATED_MOVIES, "Top Rated");
 
   return (
     <div className="bg-black">
-      {popularLoading ? (
+      {popularLoading || topRatedLoading ? (
         <div>Loading...</div>
-      ) : popularError ? (
+      ) : popularError || topRatedError ? (
         <div>Error: {error}</div>
       ) : (
-        popularMovies && (
+        popularMovies &&
+        topRatedMovies && (
           <>
             <MovieCategory movies={popularMovies} title="Popular Movies" />
-            <div className="text-white">dwd</div>
+            <MovieCategory movies={topRatedMovies} title="Top Rated" />
           </>
         )
       )}

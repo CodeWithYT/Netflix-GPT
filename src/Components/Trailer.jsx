@@ -2,7 +2,6 @@ import useTrailer from "../utils/useTrailer";
 import { FaInfo, FaPlay } from "react-icons/fa";
 
 const Trailer = ({ movie }) => {
-  console.log("Movie in Trailer component:", movie);
   const { trailer } = useTrailer(movie.id);
 
   return (
@@ -17,7 +16,7 @@ const Trailer = ({ movie }) => {
           }
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
+          referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen
         ></iframe>
       </div>

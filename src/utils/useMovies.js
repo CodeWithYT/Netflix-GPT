@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { TMDB_API_OPTIONS } from "./constants";
 
-const useMovies = (url) => {
+const useMovies = (url, title) => {
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState(null);
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ const useMovies = (url) => {
     try {
       const response = await fetch(url, TMDB_API_OPTIONS);
       if (!response.ok) {
-        throw new Error("Failed to fetch popular movies");
+        throw new Error(`Failed to fetch ${title} movies`);
       }
       const data = await response.json();
       setMovies(data.results);

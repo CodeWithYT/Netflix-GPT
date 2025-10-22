@@ -35,6 +35,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+    errorElement: <div>Oops! Something went wrong.</div>,
   },
 ]);
 createRoot(document.getElementById("root")).render(
