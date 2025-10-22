@@ -14,11 +14,9 @@ const useTrailer = (id) => {
       TMDB_API_OPTIONS
     );
     const data = await response.json();
-    console.log("Fetched Trailer Data:", data.results);
     const trailerList =
       data.results && data.results.filter((item) => item.type === "Trailer");
     setTrailer(trailerList.length ? trailerList[0] : data.results[0]);
-    console.log("Trailer Data:", trailerList);
   };
   return { trailer };
 };

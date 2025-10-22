@@ -18,7 +18,6 @@ const useNowPlaying = () => {
       }
       const data = await response.json();
       setNowPlaying(data.results);
-      console.log("Now Playing Data:", data);
     } catch (err) {
       setError(err.message);
     } finally {

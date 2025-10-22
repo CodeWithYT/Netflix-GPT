@@ -2,7 +2,6 @@ import useTrailer from "../utils/useTrailer";
 import { FaInfo, FaPlay } from "react-icons/fa";
 
 const Trailer = ({ movie }) => {
-  console.log("Movie in Trailer component:", movie);
   const { trailer } = useTrailer(movie.id);
 
   return (
