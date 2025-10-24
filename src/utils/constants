@@ -23,3 +23,13 @@ export const PROFILE_PLACEHOLDER =
 
 export const TOP_RATED_MOVIES =
   "https://api.themoviedb.org/3/movie/top_rated?language=te-IN&page=1";
+
+export const TRENDING_MOVIES =
+  "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
+
+export const LANGUAGE_OPTIONS = [
+  { code: "en-US", label: "English" },
+  { code: "hi-IN", label: "Hindi" },
+  { code: "te-IN", label: "Telugu" },
+  { code: "es-ES", label: "Spanish" },
+];

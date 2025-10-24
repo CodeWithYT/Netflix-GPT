@@ -1,8 +1,12 @@
 import useTrailer from "../utils/useTrailer";
 import { FaInfo, FaPlay } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import LANGUAGE from "../utils/languageConstants";
 
 const Trailer = ({ movie }) => {
+  console.log("Trailer movie:", movie);
   const { trailer } = useTrailer(movie.id);
+  const languageSelector = useSelector((store) => store.config.language);
 
   return (
     <div>
@@ -24,10 +28,11 @@ const Trailer = ({ movie }) => {
         <h1 className="text-white font-bold text-5xl">{movie.title}</h1>
         <p className="text-white text-lg w-1/3  mt-4">{movie.overview}</p>
         <button className="px-10 text-lg py-2 my-2 text-black bg-white rounded-lg cursor-pointer hover:bg-white/90">
-          <FaPlay className="inline-block" /> Play
+          <FaPlay className="inline-block" /> {LANGUAGE[languageSelector]?.play}
         </button>
         <button className="px-10 text-lg py-2 mx-2 text-white bg-gray-600/50 rounded-lg cursor-pointer hover:bg-gray-600/70">
-          <FaInfo className="inline-block " /> More Info
+          <FaInfo className="inline-block " />{" "}
+          {LANGUAGE[languageSelector]?.moreInfo}
         </button>
       </div>
     </div>
