@@ -20,3 +20,4 @@
     - integrate react icons.
     - implement protected routes.
     - create gpt search component with search bar and movie suggestion component.
+    - create application multilingual.
