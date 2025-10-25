@@ -5,6 +5,7 @@ import LANGUAGE from "../utils/languageConstants";
 import useMovies from "../utils/useMovies";
 import MovieCategory from "./MovieCategory";
 import { TRENDING_MOVIES } from "../utils/constants";
+import { NETFLIX_ANIMATION } from "../utils/constants";
 
 const MoviesContainer = () => {
   const selectedLanguage = useSelector((store) => store.config.language);
@@ -27,7 +28,15 @@ const MoviesContainer = () => {
   return (
     <div className="bg-black">
       {popularLoading || topRatedLoading || trendingLoading ? (
-        <div>Loading...</div>
+        <div>
+          <video
+            className="w-screen h-screen"
+            autoPlay
+            loop
+            muted
+            src={NETFLIX_ANIMATION}
+          ></video>
+        </div>
       ) : popularError || topRatedError || trendingError ? (
         <div>Error: {error}</div>
       ) : (

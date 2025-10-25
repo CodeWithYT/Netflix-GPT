@@ -27,9 +27,14 @@ export const TOP_RATED_MOVIES =
 export const TRENDING_MOVIES =
   "https://api.themoviedb.org/3/trending/movie/day?language=en-US";
 
+export const NETFLIX_ANIMATION =
+  "https://private-user-images.githubusercontent.com/140473308/293041785-a7c70b51-5fdb-4115-b80f-8bde386ddce4.mp4?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjEzODkxMTksIm5iZiI6MTc2MTM4ODgxOSwicGF0aCI6Ii8xNDA0NzMzMDgvMjkzMDQxNzg1LWE3YzcwYjUxLTVmZGItNDExNS1iODBmLThiZGUzODZkZGNlNC5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMDI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTAyNVQxMDQwMTlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mM2IyZTcwYTcxNjkwNTU5NGQ4MzBjYjAwOTlkNTQzOTc3ZGZhNjc4NGRiMDM0ZjE3YjJkNTUzNGFlNGU2M2Y0JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.T-L5hU8De0FO4mqWR8b1NFAJGlTfGOnyNDUlcviqJfg";
+
 export const LANGUAGE_OPTIONS = [
   { code: "en-US", label: "English" },
   { code: "hi-IN", label: "Hindi" },
   { code: "te-IN", label: "Telugu" },
   { code: "es-ES", label: "Spanish" },
 ];
+
+export const OPEN_API_KEY = ""; //add api key
